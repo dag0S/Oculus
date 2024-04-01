@@ -38,7 +38,7 @@ function cleanDist() {
   return src("dist").pipe(clean());
 }
 
-function building() {
+function build() {
   return src(
     [
       "app/css/style.min.css",
@@ -55,7 +55,7 @@ function building() {
 exports.styles = styles;
 exports.scripts = scripts;
 exports.watching = watching;
-exports.building = building;
+exports.build = build;
 
-exports.build = series(cleanDist, building);
+exports.build = series(cleanDist, build);
 exports.default = parallel(styles, scripts, watching);
